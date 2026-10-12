@@ -1,0 +1,165 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>ただいまコールドスリープ中</title>
+  <meta name="description" content="ディベート支援アプリはコールドスリープ中です。開発者は技術力を蓄えて帰ってきます。">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="stars" aria-hidden="true"></div>
+
+  <header class="site-header">
+    <a class="logo" href="#home">❄️ COLD SLEEP</a>
+    <nav class="tabs">
+      <a href="#home" data-tab="home">ホーム</a>
+      <a href="#notes" data-tab="notes">備忘録</a>
+      <a href="#court" data-tab="court">珍裁判</a>
+      <a href="#game" data-tab="game">ゲーム</a>
+    </nav>
+  </header>
+
+  <main>
+    <!-- ===== ホーム ===== -->
+    <section id="page-home" class="page">
+      <p class="eyebrow">NOTICE</p>
+      <h1>ディベート支援アプリは、<br>ただいまコールドスリープ中です。</h1>
+
+      <div class="capsule-wrap">
+        <button class="capsule" id="capsule" type="button" aria-label="カプセルをノックする">
+          <span class="capsule-glass"><span class="sleeper">😴</span></span>
+          <span class="frost"></span>
+        </button>
+        <p class="bubble" id="bubble" aria-live="polite"></p>
+        <p class="hint">カプセルをノックすると、寝言が聞こえるかもしれません</p>
+      </div>
+
+      <div class="notice">
+        <p>
+          開発者は、さらなる技術力を身につけ、もっと良いアプリにアップデートして戻ってくるため、
+          しばらくのあいだ冷凍睡眠に入りました。
+        </p>
+        <p>
+          眠っているあいだも、脳内では学習が続いています（たぶん）。
+          目覚めたとき、アプリは一回り賢くなっているはずです。
+          それまでのあいだ、<a href="#notes">社会人の備忘録</a>を読んだり、
+          <a href="#court">どうでもいい裁判所</a>で裁判官になったり、
+          <a href="#game">ゲーム</a>で開発者の眠りを守ったりしてお待ちください。
+        </p>
+      </div>
+
+      <dl class="status">
+        <div><dt>状態</dt><dd><span class="dot"></span>冷凍睡眠中</dd></div>
+        <div><dt>カプセル内温度</dt><dd>-196℃</dd></div>
+        <div><dt>眠り始めてから</dt><dd id="elapsed">-</dd></div>
+        <div><dt>解凍予定</dt><dd>技術力が十分に溜まりしだい</dd></div>
+      </dl>
+
+      <div class="gauge">
+        <div class="gauge-head">
+          <span>技術力チャージ</span><span id="gauge-num">0%</span>
+        </div>
+        <div class="gauge-bar"><span id="gauge-fill"></span></div>
+        <p class="gauge-note">※ 備忘録が増えるほど溜まります。</p>
+      </div>
+    </section>
+
+    <!-- ===== 備忘録 ===== -->
+    <section id="page-notes" class="page" hidden>
+      <p class="eyebrow">MEMO</p>
+      <h1>先に社会人になった者の備忘録</h1>
+      <p class="lead">
+        学生のみなさんより少しだけ先に社会に出た者が、働いてみて学んだことを書き溜めていく場所です。
+        半分は自分用のメモです。
+      </p>
+
+      <div class="note-tools">
+        <input id="note-search" type="search" placeholder="キーワードで探す" aria-label="キーワードで探す">
+        <div id="note-tags" class="tag-list"></div>
+      </div>
+      <p id="note-count" class="note-count"></p>
+      <div id="note-list" class="note-list"></div>
+    </section>
+
+    <!-- ===== 珍裁判 ===== -->
+    <section id="page-court" class="page" hidden>
+      <p class="eyebrow">COURT</p>
+      <h1>どうでもいい裁判所</h1>
+      <p class="lead">
+        日常で起きた、どうでもいい事件を裁きます。あなたが裁判官です。
+        判決を言い渡したあと、当裁判所の判断と照らし合わせてください。
+      </p>
+
+      <article class="case" id="case">
+        <p class="case-no" id="case-no"></p>
+        <h2 class="case-title" id="case-title"></h2>
+        <dl class="case-facts">
+          <dt>事件の概要</dt><dd id="case-facts"></dd>
+          <dt>被告人の言い分</dt><dd id="case-defense"></dd>
+        </dl>
+        <div class="verdict-btns" id="verdict-btns">
+          <button class="btn btn-guilty" type="button" data-v="guilty">有罪</button>
+          <button class="btn btn-ghost" type="button" data-v="innocent">無罪</button>
+        </div>
+        <div class="judgment" id="judgment" hidden>
+          <p class="match" id="judg-match"></p>
+          <p class="judg-label">主文</p>
+          <p class="judg-main" id="judg-main"></p>
+          <p class="judg-label">理由</p>
+          <p id="judg-reason"></p>
+          <button class="btn" id="btn-next-case" type="button">次の事件へ</button>
+        </div>
+      </article>
+      <p class="court-score" id="court-score"></p>
+      <p class="court-note">※ 登場する事件・法律・判決はすべて架空です。実在の法令とは関係ありません。</p>
+    </section>
+
+    <!-- ===== ゲーム ===== -->
+    <section id="page-game" class="page" hidden>
+      <p class="eyebrow">GAME</p>
+      <h1>起こさないで</h1>
+      <p class="lead">
+        開発者の眠りを妨げるものが次々とやってきます。カプセルに届く前にタップして追い払ってください。
+        一人でも届いたら、開発者は起きてしまいます。
+      </p>
+
+      <div class="game-hud">
+        <span>睡眠時間 <b id="hud-time">0分</b></span>
+        <span>ベスト <b id="hud-best">-</b></span>
+      </div>
+
+      <div class="game-area" id="game-area">
+        <div class="game-capsule" id="game-capsule"><span>😴</span></div>
+
+        <div class="overlay" id="game-start">
+          <p class="overlay-title">開発者を寝かしつけますか？</p>
+          <ul class="legend">
+            <li>⏰ 目覚まし時計</li><li>💬 @channel</li><li>☎️ 上司の電話（2回）</li>
+            <li>📧 件名「至急」</li><li>🐈 猫（3回）</li><li>🔥 本番障害（3回）</li><li>🧾 確定申告（2回）</li><li>📮 内容証明（2回）</li><li>🦟 蚊</li>
+            <li>🛏️ 羽毛布団（タップで全部消える）</li>
+          </ul>
+          <button class="btn" id="btn-start" type="button">寝かしつける</button>
+        </div>
+
+        <div class="overlay" id="game-over" hidden>
+          <p class="overlay-title">開発者が起きてしまいました</p>
+          <p class="cause" id="over-cause"></p>
+          <p class="result">睡眠時間 <b id="over-time"></b></p>
+          <p class="rank" id="over-rank"></p>
+          <button class="btn" id="btn-retry" type="button">もう一度寝かしつける</button>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <p>このサイトに登場するゲームの内容はフィクションです。実在の上司・猫とは関係ありません。</p>
+  </footer>
+
+  <script src="notes.js"></script>
+  <script src="app.js"></script>
+  <script src="court.js"></script>
+  <script src="game.js"></script>
+</body>
+</html>
