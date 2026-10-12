@@ -71,13 +71,27 @@
       <h1>先に社会人になった者の備忘録</h1>
       <p class="lead">
         学生のみなさんより少しだけ先に社会に出た者が、働いてみて学んだことを書き溜めていく場所です。
-        半分は自分用のメモです。
+        半分は自分用のメモです。「本棚」には、おすすめの本やおすすめされた本を並べていきます。
       </p>
+
+      <div class="segment" id="note-mode" role="tablist">
+        <button type="button" data-mode="notes" class="active">📝 メモ</button>
+        <button type="button" data-mode="books">📚 本棚</button>
+      </div>
 
       <div class="note-tools">
         <input id="note-search" type="search" placeholder="キーワードで探す" aria-label="キーワードで探す">
         <div id="note-tags" class="tag-list"></div>
       </div>
+      <aside class="disclaimer" id="book-disclaimer" hidden>
+        <p class="disclaimer-title">📢 本棚のリンクについての、念のためのお知らせ</p>
+        <p>
+          本棚のリンクは<b>アフィリエイトではありません</b>。あなたがこのリンクから本を買っても、
+          開発者の口座には1円も入りませんし、コールドスリープの電気代にもなりません。
+          入ってくるのは「誰かが読んでくれたかもしれない」というささやかな喜びだけです。
+          どうぞ安心して、近所の本屋さんか図書館で手に取ってください。
+        </p>
+      </aside>
       <p id="note-count" class="note-count"></p>
       <div id="note-list" class="note-list"></div>
     </section>
@@ -158,6 +172,7 @@
   </footer>
 
   <script src="notes.js"></script>
+  <script src="books.js"></script>
   <script src="app.js"></script>
   <script src="court.js"></script>
   <script src="game.js"></script>

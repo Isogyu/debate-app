@@ -251,3 +251,41 @@ h1 { font-size: clamp(22px, 5vw, 30px); line-height: 1.5; margin: 0 0 24px; }
 .judgment .btn { margin-top: 12px; }
 .court-score { color: var(--ice); font-weight: 700; text-align: center; min-height: 1.8em; }
 .court-note { color: var(--muted); font-size: 12px; text-align: center; }
+
+/* メモ／本棚の切り替え */
+.segment {
+  display: inline-flex; padding: 3px; margin-bottom: 16px;
+  border: 1px solid var(--line); border-radius: 999px; background: var(--panel);
+}
+.segment button {
+  font: inherit; font-size: 14px; cursor: pointer;
+  padding: 6px 18px; border: 0; border-radius: 999px;
+  color: var(--muted); background: transparent;
+}
+.segment button.active { color: var(--bg); background: var(--ice); font-weight: 700; }
+
+/* 本棚 */
+.book summary { display: flex; gap: 14px; align-items: flex-start; }
+.book-spine {
+  flex: none; width: 44px; height: 62px; border-radius: 3px 6px 6px 3px;
+  display: grid; place-items: center; font-weight: 700; font-size: 18px;
+  color: var(--bg); background: linear-gradient(90deg, #6fc6f0, var(--ice) 18%, #c4ecff);
+  box-shadow: inset 4px 0 0 rgba(7, 13, 28, 0.25);
+}
+.book-head { display: grid; gap: 2px; min-width: 0; }
+.book-author { color: var(--muted); font-size: 13px; }
+.book-from { color: var(--ice); font-size: 12px; }
+.book-point { font-size: 14px; margin-top: 4px; }
+
+.disclaimer {
+  font-size: 13px; color: var(--muted);
+  border: 1px dashed var(--line); border-radius: var(--radius);
+  padding: 4px 16px; margin-bottom: 12px;
+}
+.disclaimer[hidden] { display: none; }
+.disclaimer-title { color: var(--ice); font-weight: 700; margin-bottom: 0; }
+.disclaimer b { color: var(--text); }
+.book-link {
+  display: inline-block; margin: 4px 0 4px; font-size: 14px;
+  padding: 6px 14px; border: 1px solid var(--line); border-radius: 999px; text-decoration: none;
+}
